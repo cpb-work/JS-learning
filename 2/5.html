@@ -32,7 +32,87 @@ Infinity делать не нужно, однако, в случае если б
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  /**
+   * Функция складывает два переданных ей числа.
+   * @param {number} a - первое слагаемое
+   * @param {number} b - второе слагаемое
+   * @returns {number} возвращает сумму переданных чисел.
+   */
+  function plus(a, b) {
+    return a + b;
+  }
+
+  /**
+   * Функция вычисляет разницу между большим и меньшим переданными ей числами.
+   * @param {number} a - первое переданное число.
+   * @param {number} b - второе переданное число.
+   * @returns {number} возвращает разницу между большим и меньшим переданными числами,
+    для чего сначала производится определение большего. Если же числа равны, то 
+    возвращает ноль.
+   */
+  function minus(a, b) {
+    if (a > b) {
+      return a - b;
+    }
+    if (b > a) {
+      return b - a;
+    }
+    if (a == b) {
+      return 0;
+    }
+  }
+
+  /**
+   * Функция перемножает два переданных ей числа.
+   * @param {number} a - первый множитель
+   * @param {number} b - второй множитель
+   * @returns {number} возвращает произведение переданных чисел.
+   */
+  function times(a, b) {
+    return a * b;
+  }
+
+  /**
+   * Функция делит одно переданное число на другое переданное число.
+   * @param {number} a - первое переданное число, которое будет делимым
+   * @param {number} b - второе переданное число, которое будет делителем
+   * @returns {number} возвращает результат деления первого числа на второе.
+   */
+  function devide(a, b) {
+    return a / b;
+  }
+
+  /**
+   * Функция вычисляет результат операции со знаком, который был передан в
+    параметр operation для двух первых аргументов (arg1 и arg2).
+   * @param {number} arg1 - первое число.
+   * @param {number} arg2 - второе число.
+   * @param {string} operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+   * @returns {number} возвращает результат операции над переданными аргументами или NaN.
+   */
+  function mathOperation(arg1, arg2, operation) {
+    let result;
+    switch(operation){
+      case "+":
+        result = plus(arg1, arg2);
+        break;
+      case "-":
+        result = minus(arg1, arg2);
+        break;
+      case "*":
+        result = times(arg1, arg2);
+        break;
+      case "/":
+        result = devide(arg1, arg2);
+        break;
+      default:
+        result = NaN;
+    }
+    return result;
+  }
+
+console.log(mathOperation(5, 3, "+"));
+console.log(mathOperation(5, 3, ":)"));
 </script>
 </body>
 </html>

@@ -21,7 +21,19 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  const a = Number.parseInt(prompt(`Введите число 1`));
+  const b = Number.parseInt(prompt(`Введите число 2`));
+
+  if (a > 0 && b > 0) {
+    console.log(`a - b = ${a - b}`);
+  }
+  if (a < 0 && b < 0) {
+    console.log(`a * b = ${a * b}`);
+  }
+  if (a < 0 && b > 0 || a > 0 && b < 0) {
+    console.log(`a + b = ${a + b}`);
+  }
+
 </script>
 </body>
 </html>
