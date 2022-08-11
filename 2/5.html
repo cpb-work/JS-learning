@@ -54,12 +54,7 @@ Infinity делать не нужно, однако, в случае если б
     if (a > b) {
       return a - b;
     }
-    if (b > a) {
-      return b - a;
-    }
-    if (a == b) {
-      return 0;
-    }
+    return b - a;
   }
 
   /**
@@ -91,24 +86,19 @@ Infinity делать не нужно, однако, в случае если б
    * @returns {number} возвращает результат операции над переданными аргументами или NaN.
    */
   function mathOperation(arg1, arg2, operation) {
-    let result;
     switch(operation){
       case "+":
-        result = plus(arg1, arg2);
-        break;
+        return plus(arg1, arg2);
       case "-":
-        result = minus(arg1, arg2);
-        break;
+        return minus(arg1, arg2);
       case "*":
-        result = times(arg1, arg2);
-        break;
+        return times(arg1, arg2);
       case "/":
-        result = devide(arg1, arg2);
-        break;
+        return devide(arg1, arg2);
       default:
-        result = NaN;
-    }
+        return NaN;
     return result;
+    }
   }
 
 console.log(mathOperation(5, 3, "+"));
