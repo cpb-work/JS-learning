@@ -31,7 +31,30 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  /**
+  
+  */
+  function getDigitsOfNumber(int) {
+      const usualObject = {};
+      if(int < 0 || int > 999 || !Number.isInteger(int)){
+          console.error(`"${int}" не подходит по условию. Объект будет пуст.`);
+          return usualObject;
+      }
+      usualObject.units = int % 10;
+      usualObject.dozens = Math.trunc(int / 10) % 10;
+      usualObject.hundreds = Math.trunc(int / 100) % 10;
+      
+      return usualObject;
+  }
+
+  console.log(getDigitsOfNumber(10));       // full obj
+  console.log(getDigitsOfNumber('текст'));  // error + empty obj
+  console.log(getDigitsOfNumber(10.5));     // error + empty obj
+  console.log(getDigitsOfNumber(2050));     // error + empty obj
+  console.log(getDigitsOfNumber(-5.7));     // error + empty obj
+  console.log(getDigitsOfNumber(0));        // full obj
+  console.log(getDigitsOfNumber(999));      // full obj
+  console.log(getDigitsOfNumber(1000));     // error + empty obj
 </script>
 </body>
 </html>

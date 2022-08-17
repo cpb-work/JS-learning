@@ -50,7 +50,60 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  // Задание 1, Стиль ES5
+  class PostES5 {
+
+    constructor(name, text, date) {
+      this.name = name;
+      this.text = text;
+      this.date = date;
+    }
+
+    edit() {
+      this.text = 'Это новый текст поста про Петю.';
+      this.date = new Date().toLocaleString();
+      console.log(`Текст изменился на: ${this.text}`);
+    }
+  }
+    
+  var petya = new PostES5("Петя", "Старый текст поста про Петю", new Date().toLocaleString());
+  alert(`${petya.text} с датой ${petya.date}`);
+  petya.edit();
+  alert(`${petya.text} с датой ${petya.date}`);
+
+    
+  // Задание 1, Стиль ES6
+  class PostES6 {
+
+    constructor(name, text, date) {
+      this.name = name;
+      this.text = text;
+      this.date = date;
+    }
+
+    edit() {
+      this.text = 'Это новый текст поста про Васю.';
+      this.date = new Date().toLocaleString();
+      console.log(`Текст изменился на: ${this.text}`);
+    }
+  }
+    
+  const vasya = new PostES6("Вася", "Старый текст поста про Васю", new Date().toLocaleString());
+  alert(`${vasya.text} с датой ${vasya.date}`);
+  vasya.edit();
+  alert(`${vasya.text} с датой ${vasya.date}`);
+    
+    
+  // Задание 2, Стиль ES5
+  class AttachedPostES5 extends PostES5 {
+  
+    constructor(highlighted = false){
+      this.highlighted = highlighted;
+    }
+  }
+    
+ var petyaFixed = new AttachedPostES5("Вася", "Старый текст поста про Васю", new Date().toLocaleString());
+  
 </script>
 </body>
 </html>
