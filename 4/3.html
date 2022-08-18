@@ -43,7 +43,7 @@
   function getDigitsOfNumber(int) {
       const usualObject = {};
       if(int < 0 || int > 999 || !Number.isInteger(int)){
-          console.error(`"${int}" не подходит по условию. Объект будет пуст.`);
+          console.error(`"${int}" не подходит по условию. Объект будет пуст. `);
           return usualObject;
       }
       usualObject.units = int % 10;

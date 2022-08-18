@@ -57,7 +57,7 @@
     this.date = date;
 
     PostES5.prototype.edit = function() {
-      this.text = `Это новый текст поста автора ${this.name}.`;
+      this.text = `Это новый текст поста автора ${this.name}. `;
       this.date = new Date().toLocaleString();
       console.log(`Текст изменился на: ${this.text}`);
     }
