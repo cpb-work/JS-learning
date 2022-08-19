@@ -35,25 +35,41 @@
   1. Найти по id, используя getElementById, элемент с id равным "super_link" и
   вывести этот элемент в консоль.
    */
+  const elem = document.getElementById('super_link');
+  console.log(elem);
 
 
   /*
   2. Внутри всех элементов на странице, которые имеют класс "card-link",
   поменяйте текст внутри элемента на "ссылка".
    */
-
+  const elemArray = document.getElementsByClassName('card-link');
+  for (let i = 0; i < elemArray.length; i++) {
+    elemArray[i].innerHTML = 'ссылка';
+  }
 
   /*
   3. Найти все элементы на странице с классом "card-link", которые лежат в
   элементе с классом "card-body" и вывести полученную коллекцию в консоль.
    */
-
+  const elemBody = document.getElementsByClassName('card-body');
+  let result = [];
+  for (let i = 0; i < elemBody.length; i++) {
+    let children = elemBody[i].children;
+    for (let j = 0; j < children.length; j++){
+      if (children[j].className == "card-link"){
+        result.push(elemBody[i].children[j]);
+      }
+    }
+  }
+  console.log(result);
 
   /*
   4. Найти первый попавшийся элемент на странице у которого есть атрибут
   data-number со значением 50 и вывести его в консоль.
    */
-
+  var dataAtrElem = document.querySelector('data-number');
+  console.log(dataAtrElem);
 
   /*
   5. Выведите содержимое тега title в консоль.
