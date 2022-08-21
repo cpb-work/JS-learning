@@ -21,15 +21,13 @@
   "use strict";
     
   // Стиль ES5
-  class ProductES5 {
+  function ProductES5(name, price) {
 
-    constructor(name, price) {
-      this.name = name;
-      this.price = price;
-    }
+    this.name = name;
+    this.price = price;
 
-    make25Discount() {
-      console.log('Теперь со скидкой цена ' + (this.price *= 0.75).toLocaleString() + ' денег. ');
+    ProductES5.prototype.make25Discount = function() {
+      this.price *= 0.75;
     }
   }
 
@@ -55,7 +53,7 @@
     }
 
     make25Discount() {
-      console.log('Теперь со скидкой цена ' + (this.price *= 0.75) + ' денег.');
+      this.price *= 0.75;
     }
   }
     

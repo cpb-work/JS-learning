@@ -51,30 +51,29 @@
   "use strict";
 
   //  Start of Стиль ES5
-  function PostES5(name, text, date) {
+  function PostES5(name, text) {
     this.name = name;
     this.text = text;
-    this.date = date;
+    this.date = new Date();
+  }
 
-    PostES5.prototype.edit = function() {
-      this.text = `Это новый текст поста автора ${this.name}. `;
-      this.date = new Date().toLocaleString();
-      console.log(`Текст изменился на: ${this.text}`);
-    }
+  PostES5.prototype.edit = function(text) {
+    this.text = text;
+    this.date = new Date();
+    console.log(`Текст изменился на: ${this.text}`);
   }
     
   var petya = new PostES5(
     "Петя",
-    "Старый текст поста про Петю",
-    new Date().toLocaleString()
+    "Старый текст поста про Петю"
   );
   alert(`${petya.text} с датой ${petya.date}`);
-  petya.edit();
+  petya.edit(`Новый текст от ${this.name}`);
   alert(`${petya.text} с датой ${petya.date}`);
 
-  function AttachedPostES5(name, text, date, highlighted = false) {
-    PostES5.call(this, name, text, date);
-    this.highlighted = highlighted;
+  function AttachedPostES5(name, text) {
+    PostES5.call(this, name, text);
+    this.highlighted = false;
   }
 
   AttachedPostES5.prototype = Object.create(PostES5.prototype);
@@ -82,23 +81,22 @@
 
   AttachedPostES5.prototype.makeTextHighlighted = function() {
     this.highlighted = true;
-    console.log(`Теперь пост закреплён.`);
+    this.date = new Date();
   }
 
   AttachedPostES5.prototype.makeTextUnHighlighted = function() {
     this.highlighted = false;
-    console.log(`Теперь пост не закреплён.`);
+    this.date = new Date();
   }
 
   AttachedPostES5.prototype.isHighlighted = function() {
-    if (this.highlighted === true) return "Пост подсвечен";
-    else return "Пост не подсвечен";
+    if (this.highlighted) return "Пост подсвечен";
+    return "Пост не подсвечен";
   }
 
   var andrey = new AttachedPostES5(
     "Андрей",
-    "Старый текст закреплённого поста от Андрея",
-    new Date().toLocaleString()
+    "Старый текст закреплённого поста от Андрея"
   );
   alert(`${andrey.name} написал пост "${andrey.text} " с датой "${andrey.date}". 
   ${andrey.isHighlighted()}`);
@@ -118,16 +116,15 @@
   // Start of Стиль ES6
   alert('Теперь работаем в стиле ES6')
   class PostES6 {
-    constructor(name, text, date) {
+    constructor(name, text) {
       this.name = name;
       this.text = text;
-      this.date = date;
+      this.date = new Date();
     }
 
-    edit() {
-      this.text = 'Это новый текст поста автора ' + this.name;
-      this.date = new Date().toLocaleString();
-      console.log(`Текст изменился на: ${this.text}`);
+    edit(text) {
+      this.text = text;
+      this.date = new Date();
     }
   }
     
@@ -137,35 +134,34 @@
     new Date().toLocaleString()
   );
   alert(`${vasya.text} с датой ${vasya.date}`);
-  vasya.edit();
+  vasya.edit(`Это новый текст от ${this.name}`);
   alert(`${vasya.text} с датой ${vasya.date}`);
   
   class AttachedPostES6 extends PostES6 {
-    constructor(name, text, date, highlighted = false){
+    constructor(name, text){
       super(name, text, date);
-      this.highlighted = highlighted;
+      this.highlighted = false;
     }
 
     makeTextHighlighted() {
       this.highlighted = true;
-      console.log(`Теперь пост закреплён.`);
+      this.date = new Date();
     }
 
     makeTextUnHighlighted() {
       this.highlighted = false;
-      console.log(`Теперь пост не закреплён.`);
+      cthis.date = new Date();
     }
 
     isHighlighted() {
-      if (this.highlighted === true) return "Пост подсвечен";
-      else return "Пост не подсвечен";
+      if (this.highlighted) return "Пост подсвечен";
+      return "Пост не подсвечен";
     }
   }
 
   const vova = new AttachedPostES6(
     "Вова",
-    "Старый текст закреплённого поста про Вову",
-    new Date().toLocaleString()
+    "Старый текст закреплённого поста про Вову"
   );
   alert(`${vova.name} написал пост "${vova.text} " с датой "${vova.date}". 
   ${vova.isHighlighted()}`);
