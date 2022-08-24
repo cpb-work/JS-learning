@@ -18,6 +18,11 @@
   </style>
 </head>
 <body>
+  <style>
+    .animate__fadeInLeftBig {
+      background-color: red;
+    }
+  </style>
 <!--
 Обязательное задание.
 
@@ -65,7 +70,12 @@
   должно моментально отображаться в span. То есть при печати в input'е тег span
   также должен меняться.
   */
+  const ifFrom = document.querySelector('#from');
+  const spanTo = document.querySelector('span');
 
+  ifFrom.addEventListener('input', () => {
+    spanTo.innerText = ifFrom.value;
+  });
 
   /*
   2. При клике на кнопку с классом messageBtn необходимо элементу с классом
@@ -73,7 +83,12 @@
   1) добавить два класса: animate__animated и animate__fadeInLeftBig
   2) поставить данному элементу стиль visibility в значение 'visible'.
    */
+  const messageBtn = document.querySelector('.messageBtn');
+  const messageEl = document.querySelector('.message');
 
+  messageBtn.addEventListener('click', () => {
+    messageEl.classList.add('animate__animated', 'animate__fadeInLeftBig');
+  });
 
   /*
   3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
