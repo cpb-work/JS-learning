@@ -37,20 +37,52 @@
   1. При наведении на любую из звезд, данной звезде должен ставиться класс
   golden, также такой класс должен ставиться всем звездам до нее слева.
   */
+  const starList = document.querySelectorAll('.fa-star');
+  const starsContainer = document.querySelector('.stars_container');
 
+
+  for (let i = 0; i < starList.length; i++) {
+    starList[i].addEventListener('mouseover', event => {
+      starList[i].classList.add('golden');
+
+      for (let j = 0; j <= i; j++) {
+        starList[j].classList.add('golden');
+      }
+    });
+  }
+
+  /*
+  for (const star of starList) {
+    star.addEventListener('mouseover', () => star.classList.add('golden'));
+    star.addEventListener('mouseout', () => star.classList.remove('golden'));
+  }
+  */
 
   /*
   2. Когда мы уводим курсор мыши от звезды, все поставленные классы из первого
   задания должны быть удалены.
    */
+   for (let i = 0; i < starList.length; i++) {
+    starList[i].addEventListener('mouseout', event => {
+      starList[i].classList.remove('golden');
 
+      for (let j = 0; j <= i; j++) {
+        starList[j].classList.remove('golden');
+      }
+    });
+  }
 
   /*
   3. Когда мы переводим мышь от одной звезды к другой, у нас могут мигать
   звезды (временно могут становиться черными). Почему так? Напишите словами.
   Можем ли мы это исправить? Если да, то предложите решение.
   */
-
+  // Причина, по которой получаются пробелы, в том, что между элементами 
+  // есть пробелы (на самом деле, перенос строки и знаки табуляции 
+  // воспринимаются как пробел). Решить проблему поможет минимизированный 
+  // HTML-код. например, написать всё в одну строку, переносить стартовый
+  // тег на строку конечного тега предыдущего элемента или заполнение
+  // промежутка комментарием. А еще можно использовать flexbox
 
 </script>
 </body>

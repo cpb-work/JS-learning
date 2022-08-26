@@ -60,13 +60,16 @@
   3. При клике на кнопку "В корзину" название кнопки должно поменяться на
   "Добавлено" и кнопка должна стать неактивной.
    */
-  const buttons = document.querySelectorAll('button');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.textContent = 'Добавлено';
-      btn.disabled = true;
-    })
-  });
+    function btnChange() {
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btn.textContent = 'Добавлено';
+          btn.disabled = true;
+        })
+      });
+    }
+    btnChange();
 
   /*
   4. Создайте полную (глубокую) копию элемента с классом product, измените в
@@ -76,15 +79,23 @@
   отображенный товар на странице на созданную копию. У данной копии также
   должен правильно работать код из 3-го задания.
    */
-  const productElem = document.querySelector('product');
+  const productElem = document.querySelector('.product');
   const productClone = productElem.cloneNode(true);
-
+  productClone.querySelector('.productName').textContent = "Товар 4";
+  const parentElem = productElem.parentElement;
+  const productElems = document.querySelectorAll('.product');
+  parentElem.removeChild(parentElem.children[productElems.length - 1]);
+  parentElem.appendChild(productClone);
+  btnChange();
 
   /*
   5. По истечении 2 секунд с момента открытия страницы первый товар должен быть
   удален из html.
    */
-
+  setTimeout(() => {
+    parentElem.removeChild(parentElem.children[0]);
+  }, 2000
+  );
 
 </script>
 </body>
