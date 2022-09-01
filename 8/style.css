@@ -718,20 +718,66 @@ body {
     right: 10px;
     background-color: rgba(255, 255, 255, 1);
     padding: 10px;
-    border: 1px solid black;;
+    border: 1px solid black;
+    z-index: 4;
+    text-align: right;
 }
 
 .goodsInTrashTable th, td {
     padding: 5px;
-    width: 200px;
-    text-align: left;;
+    text-align: center;
+    width: 180px;
 }
 
-.goodsInTrashTable tfoot td {
-    padding: 15px 5px 5px 5px;
+.goodsInTrashTable th:first-child, td:first-child {
+    text-align: left;
+}
+
+.goodsInTrashTable th:last-child, td:last-child {
+    width: 40px;
+}
+
+.goodsInTrashTable tfoot  {
+    padding: 10px 5px 10px 5px;
     font-weight: 600;
+    border: 0;
+    position: relative;
+}
+
+.goodsInTrashTable tfoot td:after {
+    content: '';
+	position: absolute;
+	top: 0px;
+	right: 0px;    
+	bottom: 0px;    
+	left: 1%;
+	width: 98%;
+	border-top: 1px solid black;
+}
+
+.goodsInTrashTable tbody tr:after {
+    padding-bottom: 30px;
+    border-bottom: 1px solid black;
 }
 
 .goodsInTrashTable tfoot td:first-child {
     text-align: right;
+}
+
+.goodsInTrashTable tbody tr td {
+    width: 20px;
+}
+
+.goodsInTrashTable img {
+    width: 20px;
+    margin-right: 20px;
+}
+
+.goodsInTrashTable button {
+    background-color: rgb(141, 216, 106);
+    border-color: #05833a;
+    border-radius: 10px;
+    height: 30px;
+    margin-top: 20px;
+    margin-right: 15px;
 }
