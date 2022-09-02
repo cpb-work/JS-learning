@@ -119,7 +119,7 @@ function addBasketRow() {
 }
 
 /**
- * Функция для выведения футера для корзины
+ * Функция для выведения футера для корзины.
  * @returns {string} - возвращает содержимое для раздела tfoot
  */
 function addBasketFooter() {
