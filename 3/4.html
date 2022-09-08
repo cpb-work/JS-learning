@@ -45,12 +45,13 @@
   ];
 
   const photoProducts = products.filter((elem) => {
-    if (elem.photos && elem.photos.length !== 0) return true;
+    return elem.photos && elem.photos.length !== 0;
   })
   console.log(photoProducts);
   
   products.sort((a, b) => a.price - b.price);
   console.log(products);
+  
 </script>
 </body>
 </html>
