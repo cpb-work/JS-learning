@@ -25,12 +25,34 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
 <script>
   "use strict";
 
+  /**
+   * Функция принимает одно число и 3 слова в разных склонениях, чтобы,
+    в зависимости от числа, правильно применить слово.
+   * @param {number} count - число, указывающее количество предметов
+   * @param {string} one - существительное, применяемое для количеств предмета,
+    оканчивающихся единицей.
+   * @param {string} two - существительное, применяемое для количеств предмета,
+    оканчивающихся двойкой, тройкой и четвёркой.
+   * @param {string} five - существительное, применяемое для количеств предмета,
+    оканчивающихся на 5, 6, 7, 8, 9, 0.
+   * @returns {number} возвращает слово в правильном склонении для указанного
+    числа.
+   */
   function declinationOfNumber(count, one, two, five) {
-
+    const countDetection = count % 10;
+    if (count % 100 > 9 && count % 100 < 21) {
+      return five;
+    } else if (countDetection === 1) {
+      return one;
+    } else if (countDetection > 1 && countDetection < 5) {
+      return two;
+    }
+    return five;
   }
 
   // Число яблок, можно пробовать поставить свое целое, положительное число.
   const applesNumber = 5;
+  
   // Получаем от функции одно из слов "яблоко", "яблока" или "яблок".
   const word = declinationOfNumber(applesNumber, "яблоко", "яблока", "яблок");
   // Выводим корректную строку, например:
